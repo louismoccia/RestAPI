@@ -10,15 +10,6 @@ public class Dvd {
     private String rating;
     private String notes;
 
-    public Dvd(int dvdId, String title, int releaseYear, String director, String rating, String notes) {
-        this.dvdId = dvdId;
-        this.title = title;
-        this.releaseYear = releaseYear;
-        this.director = director;
-        this.rating = rating;
-        this.notes = notes;
-    }
-
     public int getDvdId() {
         return dvdId;
     }
