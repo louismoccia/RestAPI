@@ -10,7 +10,7 @@ CREATE TABLE dvd(
     releaseYear INT NOT NULL,
     director VARCHAR(30) NOT NULL,
     rating VARCHAR(10) NOT NULL,
-    notes VARCHAR(50)
+    notes VARCHAR(50) NOT NULL
 );
 
 INSERT INTO dvd(title, releaseYear, director, rating, notes)

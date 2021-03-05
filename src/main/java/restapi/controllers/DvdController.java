@@ -45,9 +45,9 @@ public class DvdController {
     }
 
     @GetMapping("/dvds/year/{releaseYear}")
-    public ResponseEntity<List<Dvd>> findDvdByReleaseYear(@PathVariable int year){
+    public ResponseEntity<List<Dvd>> findDvdByReleaseYear(@PathVariable int releaseYear){
 
-        List<Dvd> SearchYear = dao.findDvdByReleaseYear(year);
+        List<Dvd> SearchYear = dao.findDvdByReleaseYear(releaseYear);
         if(SearchYear == null){
             return new ResponseEntity(null, HttpStatus.NOT_FOUND);
         }
@@ -55,10 +55,10 @@ public class DvdController {
 
     }
 
-    @GetMapping("/dvds/Director/{Name}")
-    public ResponseEntity<List<Dvd>> findDvdByDirector(@PathVariable String Director){
+    @GetMapping("/dvds/director/{directorName}")
+    public ResponseEntity<List<Dvd>> findDvdByDirector(@PathVariable String directorName){
 
-        List<Dvd> SearchDirector = dao.findDvdByDirector(Director);
+        List<Dvd> SearchDirector = dao.findDvdByDirector(directorName);
         if(SearchDirector == null){
             return new ResponseEntity(null, HttpStatus.NOT_FOUND);
         }
@@ -66,10 +66,10 @@ public class DvdController {
 
     }
 
-    @GetMapping("/dvds/Rating/{Rating}")
-    public ResponseEntity<List<Dvd>> findDvdByRating(@PathVariable String Rating){
+    @GetMapping("/dvds/rating/{rating}")
+    public ResponseEntity<List<Dvd>> findDvdByRating(@PathVariable String rating){
 
-        List<Dvd> SearchRating = dao.findDvdByRating(Rating);
+        List<Dvd> SearchRating = dao.findDvdByRating(rating);
         if(SearchRating == null){
             return new ResponseEntity(null, HttpStatus.NOT_FOUND);
         }

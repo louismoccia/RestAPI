@@ -63,7 +63,9 @@ public class Dvd {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dvd dvd = (Dvd) o;
-        return dvdId == dvd.dvdId && releaseYear == dvd.releaseYear && title.equals(dvd.title) && director.equals(dvd.director) && rating.equals(dvd.rating) && Objects.equals(notes, dvd.notes);
+        return dvdId == dvd.dvdId && releaseYear == dvd.releaseYear &&
+                title.equals(dvd.title) && director.equals(dvd.director) &&
+                rating.equals(dvd.rating) && notes.equals(dvd.notes);
     }
 
     @Override

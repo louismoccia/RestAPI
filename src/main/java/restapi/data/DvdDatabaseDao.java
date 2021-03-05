@@ -54,7 +54,7 @@ public class DvdDatabaseDao implements DvdDao {
 
     @Override
     public Dvd findDvdById(int id) {
-        final String sql = "SELECT * FROM dvd WHERE id = ?";
+        final String sql = "SELECT * FROM dvd WHERE dvdId = ?";
 
         return jdbcTemplate.queryForObject(sql, new DvdMapper(), id);
     }
@@ -75,9 +75,9 @@ public class DvdDatabaseDao implements DvdDao {
 
     @Override
     public List<Dvd> findDvdByDirector(String name) {
-        final String sql = "SELECT * FROM dvd WHERE director LIKE '%?%'";
+        final String sql = "SELECT * FROM dvd WHERE director LIKE ?";
 
-        return jdbcTemplate.query(sql, new DvdMapper(), name);
+        return jdbcTemplate.query(sql, new DvdMapper(), new String("%" + name + "%"));
     }
 
     @Override
@@ -90,7 +90,7 @@ public class DvdDatabaseDao implements DvdDao {
     @Override
     public boolean update(Dvd dvd) {
         final String sql = "UPDATE dvd SET title = ?, releaseYear = ?, director = ?, " +
-                "rating = ?, notes = ? WHERE id = ?";
+                "rating = ?, notes = ? WHERE dvdId = ?";
 
         return jdbcTemplate.update(sql, dvd.getTitle(), dvd.getReleaseYear(), dvd.getDirector(),
                 dvd.getRating(), dvd.getNotes(), dvd.getDvdId()) > 0;
@@ -98,7 +98,7 @@ public class DvdDatabaseDao implements DvdDao {
 
     @Override
     public boolean delete(int id) {
-        final String sql = "DELETE FROM dvd WHERE id = ?";
+        final String sql = "DELETE FROM dvd WHERE dvdId = ?";
 
         return jdbcTemplate.update(sql, id) > 0;
     }
