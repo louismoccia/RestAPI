@@ -7,7 +7,6 @@ import restapi.data.DvdDao;
 import org.springframework.web.bind.annotation.*;
 import restapi.models.Dvd;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -88,7 +87,9 @@ public class DvdController {
     public ResponseEntity update(@PathVariable int id, @RequestBody Dvd dvd){
         ResponseEntity updatedDvd = new ResponseEntity(HttpStatus.NOT_FOUND);
 
-        if(dao.update(dvd)){
+        if(id != dvd.getDvdId()){
+            updatedDvd = new ResponseEntity(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if(dao.update(dvd)){
             updatedDvd = new ResponseEntity(HttpStatus.NO_CONTENT);
         }
 
