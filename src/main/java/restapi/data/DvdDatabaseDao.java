@@ -77,7 +77,7 @@ public class DvdDatabaseDao implements DvdDao {
     public List<Dvd> findDvdByDirector(String name) {
         final String sql = "SELECT * FROM dvd WHERE director LIKE ?";
 
-        return jdbcTemplate.query(sql, new DvdMapper(), new String("%" + name + "%"));
+        return jdbcTemplate.query(sql, new DvdMapper(), "%" + name + "%");
     }
 
     @Override
@@ -108,9 +108,9 @@ public class DvdDatabaseDao implements DvdDao {
         @Override
         public Dvd mapRow(ResultSet rs, int i) throws SQLException {
             Dvd dvd = new Dvd();
-            dvd.setDvdId(rs.getInt("dvdid"));
+            dvd.setDvdId(rs.getInt("dvdId"));
             dvd.setTitle(rs.getString("title"));
-            dvd.setReleaseYear(rs.getInt("releaseyear"));
+            dvd.setReleaseYear(rs.getInt("releaseYear"));
             dvd.setDirector(rs.getString("director"));
             dvd.setRating(rs.getString("rating"));
             dvd.setNotes(rs.getString("notes"));

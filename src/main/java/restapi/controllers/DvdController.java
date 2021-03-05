@@ -19,7 +19,7 @@ public class DvdController {
         this.dao = dao;
     }
 
-    @GetMapping("/{dvds}")
+    @GetMapping("/dvds")
     public List<Dvd> all(){
         return dao.getAll();
     }
