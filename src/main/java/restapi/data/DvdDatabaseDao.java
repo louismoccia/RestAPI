@@ -106,9 +106,9 @@ public class DvdDatabaseDao implements DvdDao {
         @Override
         public Dvd mapRow(ResultSet rs, int i) throws SQLException {
             Dvd dvd = new Dvd();
-            dvd.setDvdId(rs.getInt("id"));
+            dvd.setDvdId(rs.getInt("dvdid"));
             dvd.setTitle(rs.getString("title"));
-            dvd.setReleaseYear(rs.getInt("year"));
+            dvd.setReleaseYear(rs.getInt("releaseyear"));
             dvd.setDirector(rs.getString("director"));
             dvd.setRating(rs.getString("rating"));
             dvd.setNotes(rs.getString("notes"));
