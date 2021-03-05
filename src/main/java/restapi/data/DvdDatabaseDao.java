@@ -1,6 +1,7 @@
 package restapi.data;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -11,6 +12,7 @@ import java.sql.*;
 import java.util.List;
 
 @Repository
+@Profile("database")
 public class DvdDatabaseDao implements DvdDao {
 
     private final JdbcTemplate jdbcTemplate;
