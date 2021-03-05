@@ -1,13 +1,14 @@
-Drop Database if exists DvdDB;
+DROP DATABASE IF EXISTS dvdDB;
 
-Create Database DVDDB;
-USE DVDDB;
+CREATE DATABASE dvdDB;
 
-Create Table DVD(
-	dvdId int Primary Key Auto_Increment,
-    Title Varchar(30) NOT NULL,
-    ReleaseYear int NOT NULL,
-    Director Varchar(30) NOT NULL,
-    Rating Varchar(10) NOT NULL,
-    Notes Varchar(50) NOT NULL
+USE dvdDB;
+
+CREATE TABLE DVD(
+	dvdId INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(30) NOT NULL,
+    releaseYear INT NOT NULL,
+    director VARCHAR(30) NOT NULL,
+    rating VARCHAR(10) NOT NULL,
+    notes VARCHAR(50)
 );
