@@ -10,7 +10,7 @@ import restapi.models.Dvd;
 import java.util.List;
 
 @RestController
-@RequestMapping("restapi/dvd")
+@RequestMapping("restapi")
 public class DvdController {
 
     private final DvdDao dao;
@@ -19,12 +19,12 @@ public class DvdController {
         this.dao = dao;
     }
 
-    @GetMapping
+    @GetMapping("/{dvds}")
     public List<Dvd> all(){
         return dao.getAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/dvd/{id}")
     public ResponseEntity<Dvd> findDvdById(@PathVariable int id){
 
         Dvd searched = dao.findDvdById(id);
@@ -34,7 +34,7 @@ public class DvdController {
         return ResponseEntity.ok(searched);
     }
 
-    @GetMapping("/title/{title}")
+    @GetMapping("/dvds/title/{title}")
     public ResponseEntity<List<Dvd>> findDvdByTitle(@PathVariable String title){
 
         List<Dvd> SearchTitle = dao.findDvdByTitle(title);
@@ -44,7 +44,7 @@ public class DvdController {
         return ResponseEntity.ok(SearchTitle);
     }
 
-    @GetMapping("/year/{releaseYear}")
+    @GetMapping("/dvds/year/{releaseYear}")
     public ResponseEntity<List<Dvd>> findDvdByReleaseYear(@PathVariable int year){
 
         List<Dvd> SearchYear = dao.findDvdByReleaseYear(year);
@@ -55,7 +55,7 @@ public class DvdController {
 
     }
 
-    @GetMapping("/Director/{Name}")
+    @GetMapping("/dvds/Director/{Name}")
     public ResponseEntity<List<Dvd>> findDvdByDirector(@PathVariable String Director){
 
         List<Dvd> SearchDirector = dao.findDvdByDirector(Director);
@@ -66,7 +66,7 @@ public class DvdController {
 
     }
 
-    @GetMapping("/Rating/{Rating}")
+    @GetMapping("/dvds/Rating/{Rating}")
     public ResponseEntity<List<Dvd>> findDvdByRating(@PathVariable String Rating){
 
         List<Dvd> SearchRating = dao.findDvdByRating(Rating);
@@ -77,13 +77,13 @@ public class DvdController {
 
     }
 
-    @PostMapping
+    @PostMapping("/dvd")
     @ResponseStatus(HttpStatus.CREATED)
     public Dvd add(@RequestBody Dvd dvd){
         return dao.add(dvd);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/dvd/{id}")
     public ResponseEntity update(@PathVariable int id, @RequestBody Dvd dvd){
         ResponseEntity updatedDvd = new ResponseEntity(HttpStatus.NOT_FOUND);
 
@@ -96,7 +96,7 @@ public class DvdController {
         return updatedDvd;
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/dvd/{id}")
     public ResponseEntity delete(@PathVariable int id){
 
         if(dao.delete(id)){
