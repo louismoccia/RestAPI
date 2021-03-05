@@ -10,7 +10,7 @@ import restapi.models.Dvd;
 import java.util.List;
 
 @RestController
-@RequestMapping("restapi")
+@RequestMapping("/restapi")
 public class DvdController {
 
     private final DvdDao dao;

@@ -4,7 +4,7 @@ CREATE DATABASE dvdDB;
 
 USE dvdDB;
 
-CREATE TABLE DVD(
+CREATE TABLE dvd(
 	dvdId INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
     releaseYear INT NOT NULL,
@@ -12,3 +12,8 @@ CREATE TABLE DVD(
     rating VARCHAR(10) NOT NULL,
     notes VARCHAR(50)
 );
+
+INSERT INTO dvd(title, releaseYear, director, rating, notes)
+VALUES("A Great Tale", 2015, "Sam Jones", "PG", "This really is a great tale!"),
+      ("A Good Tale", 2012, "Joe Smith", "PG-13", "This is a good tale!"),
+      ("A Wonderful Tale", 2015, "Beverly Marsh", "R", "This is just wonderful!");
